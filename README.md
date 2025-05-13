@@ -25,24 +25,43 @@ This project aims to build an intelligent automation system that reads and analy
 
 ---
 
-## 🧠 Intelligence Workflow
+## 🧠 RFP Intelligence Workflow
+![image](https://github.com/user-attachments/assets/7a11393f-cbb2-4051-829c-3c3b9f7176bf)
 
-### 1. RFP Analysis
-- Summarize the RFP and extract structured client needs using LLM
-- Map extracted needs to pre-defined proposal slide types
+## 1. Client Input
+- Upload RFP file (PDF, DOCX)
+- Specify proposal tone and direction
+- Provide any additional context or preferences
 
-### 2. Slide Planning
-- Define required components per slide (e.g., title, graph, table)
-- Generate tailored research questions for each content section
+## 2. RFP Analysis
+- Parse and extract key RFP requirements
+- Generate a concise summary of the RFP
+- Organize content for downstream mapping
 
-### 3. Research (RAG Architecture)
-- Use Google Search (or SerpAPI) to retrieve top 5–10 results per question
-- GPT evaluates accuracy and relevance, summarizes findings, and cites sources
-- Re-search if confidence score is low (retry max 10 times)
+## 3.1. Slide Framework Design
+- Match RFP requirements to corresponding slide templates  
+  → 20 standard templates currently available
 
-### 4. Slide Generation
-- Automatically assemble slides with data-driven text, graphs, and formatting
-- Tone and keywords adjusted to match user selection
+## 3.2.1. Research Question Generation
+- Generate key research questions for each RFP item
+- Vary question detail based on subscription plan  
+  → (e.g., default vs. advanced tier)
+
+## 3.2.2. Research & Validation
+- Use Search APIs (e.g., SERP API) to conduct external research
+- Validate content relevance and accuracy via AI Agent
+- Fallback to alternative source (e.g., Perplexity API) if needed
+
+## 4. Draft Proposal Generation
+- Map researched insights to the appropriate slide templates
+- Populate charts and tables based on extracted data
+- Incorporate client input to write titles, subtitles, and main content
+
+## 5. Consultant Review
+Final review by human consultant to ensure:
+- Data accuracy and logical consistency
+- Slide formatting and template alignment
+- Clarity and professional tone of language
 
 ---
 
